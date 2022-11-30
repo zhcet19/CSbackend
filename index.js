@@ -48,7 +48,7 @@ app.get("/getmessage/:id",(req,res)=>{
   
   Messagedata.find({
     UserID: req.params.id,
-  })
+  }).sort({Sequence:1})
     .then((data) => {
       if (data.length == 0) {
         res.json({
